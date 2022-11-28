@@ -19,7 +19,21 @@ export class App extends React.Component{
   title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
   required
 />
+<button type="submit">Add contact</button>
+
+<div>
+        <h3>Contacts</h3>
       </div>
+      <ul>{
+        contacts.map((contacts) => {
+          <li key={ss} ></li>
+        })
+       
+        }
+        
+      </ul>
+      </div>
+      
     )
   }
 };
