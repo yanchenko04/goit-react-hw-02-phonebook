@@ -1,4 +1,5 @@
 import React from "react";
+import css from './App.module.css'
 import { nanoid } from "nanoid";
 import ContactsList from "./ContactsList/ContactsList";
 import ContactForm  from "./ContactForm/ContactForm";
@@ -54,10 +55,10 @@ export class App extends React.Component{
       contact.name.toLowerCase().includes(normalizedValue)
     );
     return (
-      <div>
-        <h1> Phonebook</h1>
+      <div className={css.main_container}>
+        <h1 className={css.phonebook_title}> Phonebook</h1>
         <ContactForm onSubmit={this.addContact} />
-        <h2> Contacts</h2>
+        <h2 className={css.contants_title}> Contacts</h2>
         <Filter onChange={this.onInputChange} />
         <ContactsList
           contacts={visibleContacts}
