@@ -6,13 +6,23 @@ import { nanoid } from "nanoid";
 export class App extends React.Component{
   state = {
     contacts: [
-      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+      { id: '',
+       name: '', 
+      }
     ],
     name: ''
   }
+
+  addContact = addContact => {
+    const { contacts } = this.state;
+    addContact.id = nanoid();
+    if (contacts.find(contact => contact.name === addContact.name)) {
+      return alert(`${addContact.name} is already is contacts`);
+    }
+    this.setState(prevState => ({
+      contacts: [addContact, ...prevState.contacts],
+    }));
+  };
 
 
 
@@ -26,19 +36,9 @@ export class App extends React.Component{
   title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
   required
 />
-<button type="submit">Add contact</button>
+<button type="submit" onSubmit={this.addContact} >Add contact</button>
 
-<div>
-        <h3>Contacts</h3>
-      </div>
-      <ul>{
-        contacts.map(({id, name, number }) => {
-          <li key={ss} ></li>
-        })
-       
-        }
         
-      </ul>
       </div>
       
     )
